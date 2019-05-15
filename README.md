@@ -3,7 +3,7 @@
 
 ####  克隆项目
 ```
-git clone git@github.com:joker8023/confluence.git
+git clone https://github.com/liuwei0376/confluence.git
 ```
 #### 启动docker-compose
 ```
@@ -47,7 +47,7 @@ confluencec/rackfile/iNViSiBLE/keygen.sh
 ####  将atlassian-extras-2.4.jar改回atlassian-extras-decoder-v2-3.2.jar并复制回原先目录
 
 ```
-docker cp ~ ~/confluence/crackfile/atlassian-extras-decoder-v2-3.2.jar confluence:/opt/atlassian/confluence/confluence/WEB-INF/lib/
+docker cp ~/confluence/crackfile/atlassian-extras-decoder-v2-3.2.jar confluence:/opt/atlassian/confluence/confluence/WEB-INF/lib/
 ```
 ### 3.4 重启
 
