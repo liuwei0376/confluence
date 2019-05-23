@@ -1,4 +1,4 @@
-基于docker 的confluence 安装 和破解
+基于docker 的confluence + PostgreSQL 安装 和破解
 ---
 
 ####  克隆项目
