@@ -1,21 +1,36 @@
 version: '2'
 
 services:
-  jira:
+  wiki:
     image: lowmem0ry/confluence
-    container_name: confluence
+    container_name: confluence2
     ports:
        - '3090:8090'
        - '3091:8091'
-  postgresql:
-    image: postgres:9.6
-    container_name: confluence_postgres
+#  postgresql:
+#    image: postgres:9.6
+#    container_name: confluence_postgres
+#    ports:
+#      - '5434:5432'
+#    environment:
+#      - 'POSTGRES_USER=wiki'
+#      - 'POSTGRES_PASSWORD=wikijoker'
+#      - 'POSTGRES_DB=wiki'
+#      - 'POSTGRES_ENCODING=UTF8'
+#      - 'POSTGRES_COLLATE=C'
+#      - 'POSTGRES_COLLATE_TYPE=C'
+  mysql:
+    image: mysql:5.7
+    container_name: confluence_mysql
+    volumes:
+      - ./mysql_volume/conf/:/etc/mysql/conf.d/
+      - ./mysql_volume/data:/var/lib/mysql
+    #restart: always
     ports:
-      - '5434:5432'
+      - '3308:3306'
     environment:
-      - 'POSTGRES_USER=wiki'
-      - 'POSTGRES_PASSWORD=wikijoker'
-      - 'POSTGRES_DB=wiki'
-      - 'POSTGRES_ENCODING=UTF8'
-      - 'POSTGRES_COLLATE=C'
-      - 'POSTGRES_COLLATE_TYPE=C'
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: confluence
+      MYSQL_USER: confluence
+      MYSQL_PASSWORD: confluence
+    privileged: true
