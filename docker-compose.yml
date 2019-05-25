@@ -4,6 +4,7 @@ services:
   wiki:
     image: lowmem0ry/confluence
     container_name: confluence2
+    hostname: confluence2
     ports:
        - '3090:8090'
        - '3091:8091'
@@ -19,19 +20,20 @@ services:
 #      - 'POSTGRES_ENCODING=UTF8'
 #      - 'POSTGRES_COLLATE=C'
 #      - 'POSTGRES_COLLATE_TYPE=C'
-  mysql:
-    image: mysql:5.7
-    container_name: confluence_mysql
-    volumes:
-      - ./mysql_volume/conf/:/etc/mysql/conf.d/
-      - ./mysql_volume/data:/var/lib/mysql
-    #restart: always
-    ports:
-      - '3308:3306'
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: confluence
-      MYSQL_USER: confluence
-      MYSQL_PASSWORD: confluence
-    privileged: true
-    tty: true
+
+#  mysql:
+#    image: mysql:5.7
+#    container_name: confluence_mysql
+#    volumes:
+#      - ./mysql_volume/conf/:/etc/mysql/conf.d/
+#      - ./mysql_volume/data:/var/lib/mysql
+#    #restart: always
+#    ports:
+#      - '3308:3306'
+#    environment:
+#      MYSQL_ROOT_PASSWORD: root
+#      MYSQL_DATABASE: confluence
+#      MYSQL_USER: confluence
+#      MYSQL_PASSWORD: confluence
+#    privileged: true
+#    tty: true
