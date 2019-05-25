@@ -34,3 +34,4 @@ services:
       MYSQL_USER: confluence
       MYSQL_PASSWORD: confluence
     privileged: true
+    tty: true
